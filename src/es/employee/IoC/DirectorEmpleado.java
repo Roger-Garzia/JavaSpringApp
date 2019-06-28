@@ -19,4 +19,24 @@ public class DirectorEmpleado implements Empleados {
 		return "Informe creado por el Director: " + informeNuevo.getInforme();
 	}
 
+	private String email;
+
+	private String nombreEmpresa;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNombreEmpresa() {
+		return nombreEmpresa;
+	}
+
+	public void setNombreEmpresa(String nombreEmpresa) {
+		this.nombreEmpresa = nombreEmpresa;
+	}
+
 }

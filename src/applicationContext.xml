@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-    http://www.springframework.org/schema/beans   
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 ">
 
-<!-- Creacion de la dependencia -->
- <bean id="miInforme" class="es.employee.IoC.Informe"></bean>
+<bean id="miEmpleado" class="es.employee.IoC.DirectorEmpleado">
+    <constructor-arg ref="miInforme"></constructor-arg>
 
- <!-- Inyeccion de Dependencias mediante un Constructor -->
- <bean id="miEmpleado" class="es.employee.IoC.DirectorEmpleado">
 
- <constructor-arg ref="miInforme"></constructor-arg>
+    <!--Inyeccion de Dependencias mediante un Metodo Setter-->
+    <property name="email" value="equipo_directivo@vectoritcgroup.com"></property>
+    <property name="nombreEmpresa" value="pildorasInformaticas"></property>
+</bean>
 
- </bean>
+<!-- Inyeccion de Dependencias mediante un Constructor -->
+<bean id="miInforme" class="es.employee.IoC.Informe"></bean>
 
- <!-- Inyeccion de Dependencias mediante un Metodo Setter -->
- <bean id="miSecretarioEmpleado" class="es.employee.IoC.SecretarioEmpleado">
+<bean id="miSecretarioEmpleado" class="es.employee.IoC.SecretarioEmpleado">
 
-     <property name="informeNuevo" ref="miInforme"></property>
+    <property name="informeNuevo" ref="miInforme"></property>
 
- </bean>
- </beans>
+    <!-- inyeccion de dependencias mediante setters y getters-->
+    <property name="email" value="secretaria@vectoritc.com"></property>
+    <property name="nombreEmpresa" value="pildorasInformaticas"></property>
+</bean>
+</beans>
